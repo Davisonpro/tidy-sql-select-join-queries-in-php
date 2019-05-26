@@ -15,6 +15,7 @@ if ($result->num_rows > 0) {
         print_r($row);
     }
 }
+
 SELECT * FROM `product` p ORDER BY p.product_id
 WHERE, OR & LIMIT
 
