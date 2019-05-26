@@ -14,7 +14,7 @@ define( 'DB_USER', 'root' );
 define( 'DB_PASSWORD', 'password' );
 define( 'DB_NAME', 'sql-query-builder' );
 
-/** Must include this constant in your script since it's used by the DbQuery class */
+/** Must include this constant in your script since it's required by the DbQuery class */
 define( 'DB_PREFIX', '' );
 
 error_reporting(E_ALL); 
@@ -34,6 +34,8 @@ $sql->select('*');
 $sql->from('product', 'p');
 $sql->orderBy('p.product_id');
 
+echo $sql;
+
 // $result = $conn->query($sql);
 
 // if ($result->num_rows > 0) {
@@ -47,6 +49,8 @@ $sql = new DbQuery();
 $sql->select('COUNT(category_id) AS cat_sum, category_id');
 $sql->from('product');
 $sql->groupBy('category_id');
+
+echo $sql;
 
 // $result = $conn->query($sql);
 
@@ -70,6 +74,8 @@ $sql->select('p.product_id, p.name AS product_name, c.name');
 $sql->from('product', 'p');
 $sql->innerJoin('category', 'c', 'p.category_id = c.category_id');
 
+echo $sql;
+
 // $result = $conn->query($sql);
 
 // if ($result->num_rows > 0) {
@@ -84,6 +90,8 @@ $sql->select('COUNT(p.product_id) AS prod_sum, p.category_id');
 $sql->from('product', 'p');
 $sql->having('COUNT(p.category_id) > 5');
 $sql->groupBy('category_id');
+
+echo $sql;
 
 // $result = $conn->query($sql);
 
