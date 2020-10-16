@@ -21,6 +21,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Create connection
+DB_PASSWORD =  md5(DB_PASSWORD); // make sure to use Hashing techniques for passwords so that database admin can't see your passwords
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 // Check connection
